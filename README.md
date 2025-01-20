@@ -34,3 +34,5 @@ Once the application is running, you can access it in your web browser at `http:
 ## License
 
 This project is licensed under the MIT License.
+
+ virtualenv -p python3 env

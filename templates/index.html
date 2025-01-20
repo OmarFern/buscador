@@ -3,9 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Buscar Tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        @media (max-width: 768px) {
+            form, table {
+                width: 90%;
+                margin: 10px auto;
+            }
+        }
+        @media (max-width: 480px) {
+            form, table {
+                width: 100%;
+                margin: 5px auto;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.querySelector('form');
+            form.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    form.submit();
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <form method="post">
+        <h2>Buscador IAPSET ART</h2>
         <label for="palabra_clave">Palabra Clave:</label>
         <input type="text" id="palabra_clave" name="palabra_clave" required>
         

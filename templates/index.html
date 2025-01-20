@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Tareas</title>
+</head>
+<body>
+    <form method="post">
+        <label for="palabra_clave">Palabra Clave:</label>
+        <input type="text" id="palabra_clave" name="palabra_clave" required>
+        
+        <label for="archivo_csv">Archivo CSV:</label>
+        <select id="archivo_csv" name="archivo_csv">
+            <option value="oficios.csv">1 TAREA</option>
+            <option value="formas.csv">2 FORMAS DE ACCIDENTE</option>
+            <option value="agente.csv">3 AGENTE DE MATERIAL ASOCIADO</option>
+            <option value="naturaleza.csv">4 NATURALEZA DE LA LESION</option>
+            <option value="zona.csv">5 ZONA DEL CUERPO AFECTADA</option>
+        </select>
+        
+        <button type="submit">Buscar</button>
+    </form>
+    
+    {% if resultados %}
+        <table>
+            <thead>
+                <tr>
+                    {% for encabezado in encabezados %}
+                        <th>{{ encabezado }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in resultados %}
+                    <tr>
+                        {% for columna in fila %}
+                            <td>{{ columna }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
